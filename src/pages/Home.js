@@ -19,7 +19,15 @@ export default function Home() {
   const fetchTrips = async () => {
     try {
       const response = await api.get("/trips/");
-      setTrips(response.data.results || response.data);
+      let tripsData = [];
+      if (Array.isArray(response.data.results)) {
+        tripsData = response.data.results;
+      } else if (Array.isArray(response.data)) {
+        tripsData = response.data;
+      } else {
+        tripsData = [];
+      }
+      setTrips(tripsData);
     } catch (err) {
       setError("Failed to load trips. Please check if the backend is running.");
       console.error("Error fetching trips:", err);
@@ -104,10 +112,10 @@ export default function Home() {
       
       <div className="trip-list">
         <h2>Recent Trips</h2>
-        {trips.length === 0 ? (
+        {Array.isArray(trips) && trips.length === 0 ? (
           <p>No trips found. Create your first trip above!</p>
         ) : (
-          trips.map((trip) => (
+          Array.isArray(trips) && trips.map((trip) => (
             <div key={trip.id} className="trip-card">
               <h3>
                 <Link to={`/trip/${trip.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
@@ -119,7 +127,6 @@ export default function Home() {
               <p><strong>Distance:</strong> {trip.distance} miles</p>
               <p><strong>Created:</strong> {new Date(trip.created_at).toLocaleString()}</p>
               <p><strong>Logs:</strong> {trip.logs ? trip.logs.length : 0} entries</p>
-              
               {/* Progress bar for cycle hours */}
               <div style={{marginTop: '10px'}}>
                 <div style={{
