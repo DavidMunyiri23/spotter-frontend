@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOS Tracker - Sample Data Quick Reference</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .section h2 {
+            color: #34495e;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .example-box {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .example-box h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .field {
+            margin: 8px 0;
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            border: 1px solid #bdc3c7;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+        }
+        .violation {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            color: #721c24;
+        }
+        .compliant {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            color: #155724;
+        }
+        .quick-copy {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚛 FMCSA HOS Tracker - Sample Data Quick Reference</h1>
+
+        <div class="section">
+            <h2>📍 Trip Examples (Copy & Paste Ready)</h2>
+            
+            <div class="example-box compliant">
+                <h3>Example 1: Cross-Country Haul</h3>
+                <div class="field">Current Location: Dallas, TX</div>
+                <div class="field">Pickup Location: Los Angeles, CA</div>
+                <div class="field">Dropoff Location: Miami, FL</div>
+                <div class="field">Current Cycle Hours Used: 42.5</div>
+                <div class="quick-copy">✅ Compliant - Good for testing normal operations</div>
+            </div>
+
+            <div class="example-box warning">
+                <h3>Example 2: Regional Route</h3>
+                <div class="field">Current Location: Chicago, IL</div>
+                <div class="field">Pickup Location: Detroit, MI</div>
+                <div class="field">Dropoff Location: Indianapolis, IN</div>
+                <div class="field">Current Cycle Hours Used: 65.0</div>
+                <div class="quick-copy">⚠️ Near Limit - Good for testing warnings</div>
+            </div>
+
+            <div class="example-box violation">
+                <h3>Example 3: Violation Test</h3>
+                <div class="field">Current Location: Phoenix, AZ</div>
+                <div class="field">Pickup Location: San Diego, CA</div>
+                <div class="field">Dropoff Location: Las Vegas, NV</div>
+                <div class="field">Current Cycle Hours Used: 72.0</div>
+                <div class="quick-copy">🚫 Over Limit - Good for testing violation alerts</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📅 Daily Log Examples</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Driving</th>
+                        <th>On Duty</th>
+                        <th>Sleeper</th>
+                        <th>Off Duty</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Normal Day</strong></td>
+                        <td>9.5</td>
+                        <td>3.0</td>
+                        <td>8.0</td>
+                        <td>3.5</td>
+                        <td>✅ Compliant</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Max Driving</strong></td>
+                        <td>11.0</td>
+                        <td>2.0</td>
+                        <td>10.0</td>
+                        <td>1.0</td>
+                        <td>⚠️ At Limit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Violation Test</strong></td>
+                        <td>12.0</td>
+                        <td>3.0</td>
+                        <td>8.0</td>
+                        <td>1.0</td>
+                        <td>🚫 Over Limit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Short Day</strong></td>
+                        <td>6.0</td>
+                        <td>2.0</td>
+                        <td>10.0</td>
+                        <td>6.0</td>
+                        <td>✅ Under Limit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Split Sleeper</strong></td>
+                        <td>8.0</td>
+                        <td>4.0</td>
+                        <td>8.0</td>
+                        <td>4.0</td>
+                        <td>✅ Strategic</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Quick Test Instructions</h2>
+            
+            <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; border: 1px solid #bee5eb;">
+                <h3>Step 1: Create a Trip</h3>
+                <ol>
+                    <li>Open <strong>http://localhost:3001</strong></li>
+                    <li>Copy one of the trip examples above</li>
+                    <li>Paste values into the form</li>
+                    <li>Click "Create Trip"</li>
+                </ol>
+
+                <h3>Step 2: Add Daily Logs</h3>
+                <ol>
+                    <li>Click on your created trip</li>
+                    <li>Use today's date (2025-10-30)</li>
+                    <li>Try the "Normal Day" values first</li>
+                    <li>Then test "Violation Test" values</li>
+                </ol>
+
+                <h3>Step 3: Check Features</h3>
+                <ul>
+                    <li>✅ Progress bars showing cycle usage</li>
+                    <li>⚠️ Warning messages for approaching limits</li>
+                    <li>🚫 Error messages for violations</li>
+                    <li>🗺️ Map view (general US display)</li>
+                    <li>📊 Compliance summary dashboard</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 What to Look For</h2>
+            
+            <div class="example-box compliant">
+                <h3>✅ Success Indicators</h3>
+                <ul>
+                    <li>Trip appears in the list immediately</li>
+                    <li>Progress bar shows correct percentage</li>
+                    <li>Daily logs save without errors</li>
+                    <li>Total hours validate to 24.0</li>
+                    <li>Map displays with markers</li>
+                </ul>
+            </div>
+
+            <div class="example-box warning">
+                <h3>⚠️ Warning Messages</h3>
+                <ul>
+                    <li>"Less than 10 hours remaining in 70-hour cycle"</li>
+                    <li>Progress bar turns yellow/orange</li>
+                    <li>Hour inputs near maximum values</li>
+                </ul>
+            </div>
+
+            <div class="example-box violation">
+                <h3>🚫 Violation Alerts</h3>
+                <ul>
+                    <li>"Daily driving limit exceeded (12.0 > 11 hours)"</li>
+                    <li>"70-hour cycle limit exceeded"</li>
+                    <li>"Total exceeds 24 hours" for daily logs</li>
+                    <li>Red progress bars and error styling</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Troubleshooting</h2>
+            <div style="background: #fff3cd; padding: 15px; border-radius: 5px;">
+                <h4>Common Issues:</h4>
+                <ul>
+                    <li><strong>API Error:</strong> Make sure Django server is running at http://127.0.0.1:8000</li>
+                    <li><strong>Form Won't Submit:</strong> Check that total daily hours = 24.0</li>
+                    <li><strong>No Data Showing:</strong> Check browser console for CORS errors</li>
+                    <li><strong>Map Not Loading:</strong> Internet connection needed for tiles</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
+            <p>FMCSA Hours of Service Tracker - Sample Data Guide</p>
+            <p>Use these examples to test all features and compliance scenarios! 🚛✨</p>
+        </footer>
+    </div>
+</body>
+</html>
